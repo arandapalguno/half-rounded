@@ -1,11 +1,11 @@
 import Layout from '../components/Layout'
 
   
-export default function Home() {
+export default function PageChart() {
 
   return(
     <Layout>
-      Hello world, Welcome to admin-half-rounded
+      Chart page
     </Layout>
   )
 }
