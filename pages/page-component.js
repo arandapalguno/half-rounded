@@ -22,7 +22,7 @@ export default function PageComponent() {
       </div>
       {/* modal */}
       {showModal && (
-        <div class={`${!showModal ? "translate-y-0" : "-translate-y-full"} translate-y-full absolute bottom-0 inset-x-0 shadow-xl px-8 pt-8 bg-gray-700 mx-10 lg:mx-24 h-48 rounded-t-3xl z-50 ease-in-out transition-transform duration-500`}>
+        <div className={`${!showModal ? "translate-y-0" : "-translate-y-full"} translate-y-0 absolute bottom-0 inset-x-0 shadow-xl px-8 pt-8 bg-gray-700 mx-10 lg:mx-24 h-48 rounded-t-3xl z-50 ease-in-out transition-transform duration-500`}>
           <div className = "flex">
             <div className = "rounded-full h-16 w-16 bg-red-200 px-3 pt-3 shadow-xl text-3xl text-red-500 text-center">
               <FontAwesomeIcon icon={faExclamation}/>

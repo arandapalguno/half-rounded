@@ -69,9 +69,9 @@ export default function LeftSidebar({ maxOpened }){
       {/* menu bar */}
       <div className = "mt-6 pt-6 hover h-4/5 overflow-y-scroll scrollbar-hide">
         {menus.map((menu) => 
-        <Link href={menu.path}>
+        <Link key={menu.id} href={menu.path}>
 
-          <div key={menu.id} className =  "relative text-white py-3 px-6 group hover:bg-white rounded-l-3xl hover:text-gray-700 z-10">
+          <div className =  "relative text-white py-3 px-6 group hover:bg-white rounded-l-3xl hover:text-gray-700 z-10">
             <FontAwesomeIcon icon={menu.icon}/>
             {/* top shape roundout */}
             <div className = "group-hover:bg-white h-6 absolute -top-6 right-0 w-6"/>
@@ -110,8 +110,8 @@ export default function LeftSidebar({ maxOpened }){
       {/* menu bar */}
       <div className = "mt-6 pt-6 hover h-4/5 overflow-y-scroll scrollbar-hide">
       {menus.map((menu) => 
-      <Link href={menu.path}>
-        <div key={menu.id} className =  "relative text-white py-3 px-6 group hover:bg-white rounded-l-3xl hover:text-gray-700">
+      <Link key={menu.id} href={menu.path}>
+        <div className =  "relative text-white py-3 px-6 group hover:bg-white rounded-l-3xl hover:text-gray-700">
           <div className = "flex">
             <div className= "mr-3">
               <FontAwesomeIcon icon={menu.icon}/>
