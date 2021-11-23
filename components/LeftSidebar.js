@@ -4,10 +4,10 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faChevronRight, faChevronLeft, faCogs, faSignOutAlt, faChartLine, faBoxOpen } from '@fortawesome/free-solid-svg-icons';
 import React from 'react'
+import Link from 'next/link'
 
-export default function LeftSidebar({ sidebarClick }){
+export default function LeftSidebar({ maxOpened }){
   const[leftMaxOpen, setLeftMaxOpen] = React.useState(false);
-  const[leftMinOpen, setLeftMinOpen] = React.useState(true);
   const[dark, setDark] = React.useState(false);
   const[sub, setSub] = React.useState(false);
 
@@ -15,29 +15,39 @@ export default function LeftSidebar({ sidebarClick }){
     {
       id : 1,
       name : 'Home',
-      icon : faHome
+      icon : faHome,
+      path : '/'
     },{
       id : 2,
       name : 'Component',
-      icon : faBoxOpen
+      icon : faBoxOpen,
+      path : '/page-component'
     },{
       id : 3,
       name : 'Chart',
-      icon : faChartLine
+      icon : faChartLine,
+      path : '/page-chart'
     },{
       id : 4,
       name : 'Setting',
-      icon : faCogs
+      icon : faCogs,
+      path : '/page-setting'
     },{
       id : 5,
       name : 'Signout',
-      icon : faSignOutAlt
+      icon : faSignOutAlt,
+      path : '/page-signout'
     }
   ])
   
+  function setNavigation(){
+      setLeftMaxOpen(!leftMaxOpen);
+      maxOpened(!leftMaxOpen)
+  }
+
   return (
     <>
-    <aside className = {`${leftMinOpen ? "translate-x-0" : "-translate-x-full"} flex-grow translate-x-0 transform top-0 left-0 w-16 bg-gray-800 fixed h-full z-30 `}>
+    <aside className = {`${!leftMaxOpen ? "translate-x-0" : "-translate-x-full"} flex-grow translate-x-0 transform top-0 left-0 w-16 bg-gray-800 fixed h-full z-30 `}>
       {/* {leftMinOpen && ( */}
         {/* <div onClick= {() => {setLeftMinOpen(false); setLeftMaxOpen(true);}} className={`fixed top-1/3 -right-2 bg-gray-700 w-2 h-24 rounded-r-xl`}/> */}
       {/* )} */}
@@ -50,7 +60,7 @@ export default function LeftSidebar({ sidebarClick }){
       </div>
 
       {/* toolbar */}
-      <div onClick= {() => {setLeftMinOpen(false); setLeftMaxOpen(true);}} className = "relative z-20">
+      <div onClick= {() => setNavigation()} className = "relative z-20">
         <div className = "absolute right-2 -bottom-10 bg-white shadow-lg w-12 h-8 rounded-r-2xl rounded-bl-3xl text-center">
           <FontAwesomeIcon icon={faChevronRight}/>
         </div>
@@ -59,7 +69,9 @@ export default function LeftSidebar({ sidebarClick }){
       {/* menu bar */}
       <div className = "mt-6 pt-6 hover h-4/5 overflow-y-scroll scrollbar-hide">
         {menus.map((menu) => 
-          <div key={menu.id} className =  "relative text-white py-3 px-6 group hover:bg-white rounded-l-3xl hover:text-gray-700 z-10">
+        <Link key={menu.id} href={menu.path}>
+
+          <div className =  "relative text-white py-3 px-6 group hover:bg-white rounded-l-3xl hover:text-gray-700 z-10">
             <FontAwesomeIcon icon={menu.icon}/>
             {/* top shape roundout */}
             <div className = "group-hover:bg-white h-6 absolute -top-6 right-0 w-6"/>
@@ -68,6 +80,7 @@ export default function LeftSidebar({ sidebarClick }){
             <div className = "group-hover:bg-white h-6 absolute -bottom-6 right-0 w-6"/>
             <div className = "group-hover:bg-gray-800 h-6 absolute -bottom-6 right-0 w-6 rounded-tr-full"/>
           </div>
+        </Link>
         )}
         
         
@@ -88,7 +101,7 @@ export default function LeftSidebar({ sidebarClick }){
       </div>
       
       {/* toolbar */}
-      <div onClick= {() => {setLeftMinOpen(true); setLeftMaxOpen(false);}} className = "relative z-10">
+      <div onClick= {() => setNavigation()} className = "relative z-10">
         <div className = "absolute right-2 -bottom-10 bg-white shadow-lg w-12 h-8 rounded-r-2xl rounded-bl-3xl text-center">
           <FontAwesomeIcon icon={faChevronLeft}/>
         </div>
@@ -97,7 +110,8 @@ export default function LeftSidebar({ sidebarClick }){
       {/* menu bar */}
       <div className = "mt-6 pt-6 hover h-4/5 overflow-y-scroll scrollbar-hide">
       {menus.map((menu) => 
-        <div key={menu.id} className =  "relative text-white py-3 px-6 group hover:bg-white rounded-l-3xl hover:text-gray-700">
+      <Link key={menu.id} href={menu.path}>
+        <div className =  "relative text-white py-3 px-6 group hover:bg-white rounded-l-3xl hover:text-gray-700">
           <div className = "flex">
             <div className= "mr-3">
               <FontAwesomeIcon icon={menu.icon}/>
@@ -113,6 +127,7 @@ export default function LeftSidebar({ sidebarClick }){
           <div className = "group-hover:bg-white h-6 absolute -bottom-6 right-0 w-6"/>
           <div className = "group-hover:bg-gray-800 h-6 absolute -bottom-6 right-0 w-6 rounded-tr-full"/>
         </div>
+      </Link>
       )}
       </div>
       

@@ -1,11 +1,11 @@
 import Layout from '../components/Layout'
 
   
-export default function Home() {
+export default function PageSignout() {
 
   return(
     <Layout>
-      Hello world, Welcome to admin-half-rounded
+      Signout page
     </Layout>
   )
 }
