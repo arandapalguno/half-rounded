@@ -47,7 +47,7 @@ export default function LeftSidebar({ maxOpened }){
 
   return (
     <>
-    <aside className = {`${!leftMaxOpen ? "translate-x-0" : "-translate-x-full"} flex-grow translate-x-0 transform top-0 left-0 w-16 bg-gray-800 fixed h-full z-30 `}>
+    <aside className = {`${!leftMaxOpen ? "ease-out transition-all duration-200" : "-translate-x-full ease-out transition-all duration-300"} flex-grow translate-x-0 transform top-0 left-0 w-16 bg-gray-800 fixed h-full z-30 `}>
       {/* {leftMinOpen && ( */}
         {/* <div onClick= {() => {setLeftMinOpen(false); setLeftMaxOpen(true);}} className={`fixed top-1/3 -right-2 bg-gray-700 w-2 h-24 rounded-r-xl`}/> */}
       {/* )} */}
@@ -87,7 +87,7 @@ export default function LeftSidebar({ maxOpened }){
       </div>
     </aside>
     
-    <aside className = {`${leftMaxOpen ? "translate-x-0" : "-translate-x-full"} flex-grow translate-x-0 transform top-0 left-0 w-64 bg-gray-800 fixed h-full z-40`}>
+    <aside className = {`${leftMaxOpen ? "ease-in transition-all duration-300" : "-translate-x-full ease-in transition-all duration-300"} flex-grow translate-x-0 transform top-0 left-0 w-64 bg-gray-800 fixed h-full z-40`}>
       
       {/* {leftMaxOpen && ( */}
          {/* <div onClick= {() => {setLeftMinOpen(true); setLeftMaxOpen(false);}} className={`fixed top-1/3 -right-2 bg-gray-700 w-2 h-24 rounded-r-xl animate-pulse`}/> */}
