@@ -8,7 +8,7 @@ export default function Layout({children}) {
     const [leftMaxOpen, setLeftMaxOpen] = React.useState(false)
     const [dark, setDark] = React.useState(false);
     const [openToolbar, setOpenToolbar] = React.useState(false)
-    const [openNotif, setOpenNotif] = React.useState(true)
+    const [openNotif, setOpenNotif] = React.useState(false)
     
     return (
         <main className = 'flex'>
